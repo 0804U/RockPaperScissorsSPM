@@ -1,3 +1,3 @@
 # RockPaperScissors
 
-A description of this package.
+Play Rock Paper Scissors Lizard Spock against this tiny swift program.
