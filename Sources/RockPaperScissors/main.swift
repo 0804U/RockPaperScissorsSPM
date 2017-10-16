@@ -1,4 +1,10 @@
+#if os(Linux) || os(Android)
 import Glibc
+#else
+import Foundation
+#endif
+
+
 import Commander
 
 for count in 1...4 {
@@ -17,7 +23,7 @@ let main = command { (item:String) in
         return
     }
 
-    let randomItem = GameItem.getRandom();
+    let randomItem = GameItem.createRandomItem()
     print(String(describing: item) + " vs. " + String(describing: randomItem))
 }
 
