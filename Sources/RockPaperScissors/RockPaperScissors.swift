@@ -8,7 +8,7 @@ enum GameItem: Int {
     case spock
 
     static let count: Int = {
-        var maxValue: GameItem.RawValue = 0
+        var maxValue: GameItem.RawValue = 0 // assumes our enum starts with 0
         while let _ = GameItem(rawValue: maxValue) { 
             maxValue += 1
         }
@@ -22,8 +22,7 @@ enum GameItem: Int {
         srand (stime)
         let randomRawValue = (random() % GameItem.count)
         guard let randomGameItem = GameItem(rawValue: randomRawValue) else {
-            print("could not produce random item")
-            return .rock
+            fatalError("could not produce random item")
         }
         return randomGameItem
     }
