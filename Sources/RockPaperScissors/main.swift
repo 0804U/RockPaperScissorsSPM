@@ -28,3 +28,8 @@ let main = command { (item:String) in
 }
 
 main.run()
+
+
+// if CommandLine.arguments.count == 2 {
+//     print(String(describing: CommandLine.arguments[1]))
+// }
