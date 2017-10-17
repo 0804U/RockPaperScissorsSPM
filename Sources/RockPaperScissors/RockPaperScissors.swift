@@ -1,7 +1,7 @@
 #if os(Linux) || os(Android)
 import Glibc
 #else
-import Foundation
+import Darwin
 #endif
 
 enum GameItem: Int {
