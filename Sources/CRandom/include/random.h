@@ -1,0 +1,1 @@
+int createRandomNumber(int max);

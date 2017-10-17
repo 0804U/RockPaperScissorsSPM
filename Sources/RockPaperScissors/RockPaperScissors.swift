@@ -1,8 +1,10 @@
-#if os(Linux) || os(Android)
-import Glibc
-#else
-import Darwin
-#endif
+// #if os(Linux) || os(Android)
+// import Glibc
+// #else
+// import Darwin
+// #endif
+
+import CRandom
 
 enum GameItem: Int {
     case rock
@@ -21,7 +23,8 @@ enum GameItem: Int {
 
 
     static func createRandomItem() -> GameItem {
-        let randomRawValue = getRandomNumberBetweenZero(and: GameItem.count)
+        // let randomRawValue = getRandomNumberBetweenZero(and: GameItem.count)
+        let randomRawValue = Int(CRandom.createRandomNumber(5))
         guard let randomGameItem = GameItem(rawValue: randomRawValue) else {
             fatalError("could not produce random item")
         }
@@ -29,19 +32,19 @@ enum GameItem: Int {
     }
 }
 
-#if os(Linux) || os(Android)
+// #if os(Linux) || os(Android)
 
-private func getRandomNumberBetweenZero(and max: Int) -> Int {
-    var number = 0
-    let stime = UInt32(time(&number))
-    srand (stime)
-    return random() % GameItem.count
-}
+// private func getRandomNumberBetweenZero(and max: Int) -> Int {
+//     var number = 0
+//     let stime = UInt32(time(&number))
+//     srand (stime)
+//     return random() % GameItem.count
+// }
 
-#else
+// #else
 
-private func getRandomNumberBetweenZero(and max: Int) -> Int {
-    return Int(arc4random_uniform(UInt32(max)))
-}
+// private func getRandomNumberBetweenZero(and max: Int) -> Int {
+//     return Int(arc4random_uniform(UInt32(max)))
+// }
 
-#endif
+// #endif
