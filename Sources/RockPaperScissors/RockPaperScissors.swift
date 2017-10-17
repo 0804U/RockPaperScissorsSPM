@@ -24,7 +24,8 @@ enum GameItem: Int {
 
     static func createRandomItem() -> GameItem {
         // let randomRawValue = getRandomNumberBetweenZero(and: GameItem.count)
-        let randomRawValue = Int(CRandom.createRandomNumber(5))
+        let max = Int32(GameItem.count)
+        let randomRawValue = Int(CRandom.createRandomNumber(max))
         guard let randomGameItem = GameItem(rawValue: randomRawValue) else {
             fatalError("could not produce random item")
         }
