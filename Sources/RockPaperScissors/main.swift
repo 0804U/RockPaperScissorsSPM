@@ -24,12 +24,11 @@ let main = command { (item:String) in
     }
 
     let randomItem = GameItem.createRandomItem()
+
     print(String(describing: item) + " vs. " + String(describing: randomItem))
+
+    print("And the Winner is: " + String(describing: GameItem.compare(randomItem, item)))
 }
 
 main.run()
 
-
-// if CommandLine.arguments.count == 2 {
-//     print(String(describing: CommandLine.arguments[1]))
-// }
